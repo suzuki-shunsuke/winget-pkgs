@@ -51,6 +51,7 @@ on:
 
 jobs:
   spelling:
+    timeout-minutes: 30
     name: Check Spelling
     permissions:
       contents: read
@@ -82,6 +83,7 @@ jobs:
         check_extra_dictionaries: ''
 
   comment-push:
+    timeout-minutes: 30
     name: Report (Push)
     # If your workflow isn't running on push, you can remove this job
     runs-on: ubuntu-latest
@@ -98,6 +100,7 @@ jobs:
         task: ${{ needs.spelling.outputs.followup }}
 
   comment-pr:
+    timeout-minutes: 30
     name: Report (PR)
     # If you workflow isn't running on pull_request*, you can remove this job
     runs-on: ubuntu-latest
